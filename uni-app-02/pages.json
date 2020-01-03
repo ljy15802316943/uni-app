@@ -21,6 +21,14 @@
             "path" : "pages/movableArea/movableArea",
             "style" : {}
         }
+        ,{
+            "path" : "pages/form/form",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/input/input",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

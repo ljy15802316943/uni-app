@@ -1,2 +1,2 @@
-setCssToHead([".",[1],"app { display: -webkit-box; display: -webkit-flex; display: flex; width: 100%; height: 1.875rem; padding: 0.62rem; text-align: center; }\n.",[1],"buttonStyle { }\n",],undefined,{path:"./pages/index/index.wxss"})();
+setCssToHead([".",[1],"app { display: -webkit-box; display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; height: 1.875rem; padding: 0.62rem; text-align: center; }\n.",[1],"app wx-button { width: auto; margin: 0.2rem; }\n",],undefined,{path:"./pages/index/index.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/index/index.wxml') } }));

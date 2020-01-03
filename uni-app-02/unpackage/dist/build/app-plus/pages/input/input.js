@@ -1,0 +1,2 @@
+setCssToHead(["body { background: #f8f8f8; }\n",],undefined,{path:"./pages/input/input.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/input/input.wxml') } }));

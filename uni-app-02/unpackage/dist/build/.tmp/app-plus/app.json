@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/swiper/swiper",
+    "pages/movableArea/movableArea",
+    "pages/form/form",
+    "pages/input/input"
   ],
   "window": {
     "navigationBarTextStyle": "black",

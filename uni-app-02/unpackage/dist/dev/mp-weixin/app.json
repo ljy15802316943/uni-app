@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/about/about",
     "pages/swiper/swiper",
-    "pages/movableArea/movableArea"
+    "pages/movableArea/movableArea",
+    "pages/form/form",
+    "pages/input/input"
   ],
   "subPackages": [],
   "window": {
