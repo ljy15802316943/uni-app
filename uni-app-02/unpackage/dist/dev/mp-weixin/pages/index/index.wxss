@@ -1,15 +1,4 @@
-.app {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-          flex-wrap: wrap;
-  height: 1.875rem;
-  padding: 0.62rem;
-  text-align: center;
-}
-.app button {
-  width: auto;
-  margin: 0.2rem;
+page {
+  background: #f8f8f8;
 }
 

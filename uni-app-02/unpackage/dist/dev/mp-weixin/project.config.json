@@ -31,21 +31,6 @@
           "query": "interval=4000&autoplay=false",
           "id": 0,
           "pathName": "pages/index/index"
-        },
-        {
-          "name": "about",
-          "id": 1,
-          "pathName": "pages/about/about"
-        },
-        {
-          "name": "swiper",
-          "id": 2,
-          "pathName": "pages/swiper/swiper"
-        },
-        {
-          "name": "movableArea",
-          "id": 3,
-          "pathName": "pages/movableArea/movableArea"
         }
       ]
     }

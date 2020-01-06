@@ -1,49 +1,31 @@
 <template>
-	<view class="app">
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('about')">about...</button>
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('swiper')">swiper...</button>
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('movableArea')">movable-area...</button>
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('test')">test...</button>
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('form')">form...</button>
-		<button size="mini" class="buttonStyle" type="primary" @click="handleBtn('input')">input...</button>
-	</view>
+    <view>
+        <view class="page-body">
+            <view class="btn-area">
+                <navigator url="/pages/navigate/navigate?title=navigate" hover-class="navigator-hover">
+                    <button type="default">跳转到新页面</button>
+                </navigator>
+                <navigator url="/pages/redirect/redirect?title=redirect" open-type="redirect" hover-class="other-navigator-hover">
+                    <button type="default">在当前页打开</button>
+                </navigator>
+                <navigator url="/pages/tabBar/tabBar" open-type="switchTab" hover-class="other-navigator-hover">
+                    <button type="default">跳转tab页面</button>
+                </navigator>
+            </view>
+        </view>
+    </view>
 </template>
 <script>
 	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			handleBtn (e) {
-				if (e == 'about') {
-					uni.navigateTo({ url: '../about/about'});
-				} else if (e == 'swiper') {
-					uni.navigateTo({ url: '../swiper/swiper'});
-				} else if (e == 'movableArea') {
-					uni.navigateTo({ url: '../movableArea/movableArea'});
-				} else if (e == 'test') {
-					uni.navigateTo({ url: '../test/test'});
-				} else if (e == 'form') {
-					uni.navigateTo({ url: '../form/form'});
-				} else if (e == 'input') {
-					uni.navigateTo({ url: '../input/input'});
-				}
-			}
-		}
+	    onLoad: function (option) { //option为object类型，会序列化上个页面传递的参数
+	        console.log(option.id); //打印出上个页面传递的参数。
+	        console.log(option.name); //打印出上个页面传递的参数。
+	    }
 	}
 </script>
+
 <style lang="less">
-	.app {
-		display: flex;
-		flex-wrap: wrap;
-		height: 1.875rem;
-		padding: 0.62rem;
-		text-align: center;
-		button {
-			width: auto;
-			margin: 0.2rem;
-		}
+	page {
+		background: #f8f8f8;
 	}
 </style>

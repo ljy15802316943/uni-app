@@ -1,1 +1,0 @@
-<view class="content"><switch checked="{{isChecked}}" data-event-opts="{{[['change',[['switchchange',['$event']]]]]}}" bindchange="__e"></switch></view>
