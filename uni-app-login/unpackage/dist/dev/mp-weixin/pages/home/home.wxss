@@ -1,0 +1,17 @@
+.app {
+  padding: 0 35rpx;
+  box-sizing: border-box;
+}
+.app .content {
+  margin-top: 50rpx;
+}
+.app .content .text1 {
+  color: #8f8f94;
+  margin-top: 50rpx;
+  font-size: 40rpx;
+}
+.app .content .text2 {
+  font-size: 34rpx;
+  color: #8f8f94;
+}
+

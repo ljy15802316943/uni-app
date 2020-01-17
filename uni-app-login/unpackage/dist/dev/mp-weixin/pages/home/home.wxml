@@ -1,0 +1,1 @@
+<view class="app"><view class="content"><text class="text1">您好 游客。</text></view><view class="content"><text class="text2">这是 uni-app 带登录模板的示例App首页。在 “我的” 中点击 “登录” 可以 “登录您的账户”</text></view></view>

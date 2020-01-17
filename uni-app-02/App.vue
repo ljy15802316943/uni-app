@@ -1,5 +1,8 @@
 <script>
 	export default {
+		globalData: {
+			msg: 'app数据'
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},
@@ -12,7 +15,7 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	/* uni.css - 通用组件、模板样式库，可以当作一套ui库应用 */
 	@import './common/uni.css';
 </style>

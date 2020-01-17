@@ -1,0 +1,23 @@
+page {
+  background: #f8f8f8;
+}
+.upload-box {
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.upload-box .details-content {
+  margin-bottom: 150rpx;
+}
+.upload-box .input-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.upload-box .input-content text {
+  position: relative;
+  top: -2rpx;
+  right: 30rpx;
+}
+

@@ -1,0 +1,2 @@
+setCssToHead(["wx-uni-toast .",[1],"uni-toast { color: #DD524D; }\n",],undefined,{path:"./pages/navigate/navigate.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/navigate/navigate.wxml') } }));

@@ -1,17 +1,35 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/about/about",
-    "pages/swiper/swiper",
-    "pages/movableArea/movableArea",
-    "pages/form/form",
-    "pages/input/input"
+    "pages/navigate/navigate",
+    "pages/redirect/redirect",
+    "pages/tabBar/tabBar"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/image/extui.png",
+        "selectedIconPath": "static/image/extuiHL.png",
+        "text": "组件"
+      },
+      {
+        "pagePath": "pages/tabBar/tabBar",
+        "iconPath": "static/image/template.png",
+        "selectedIconPath": "static/image/templateHL.png",
+        "text": "接口"
+      }
+    ]
   },
   "nvueCompiler": "uni-app",
   "renderer": "auto",
@@ -20,6 +38,6 @@
     "autoclose": false
   },
   "appname": "hello uni-app-1",
-  "compilerVersion": "2.4.6",
+  "compilerVersion": "2.5.1",
   "usingComponents": {}
 }

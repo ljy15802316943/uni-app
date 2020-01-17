@@ -142,7 +142,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -161,10 +167,61 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 var _default =
 {
+  data: function data() {
+    return {
+      text: 0,
+      text2: '...',
+      state: false,
+      state2: false };
+
+  },
   onLoad: function onLoad(option) {//option为object类型，会序列化上个页面传递的参数
     console.log(option.id); //打印出上个页面传递的参数。
     console.log(option.name); //打印出上个页面传递的参数。
-  } };exports.default = _default;
+    uni.$emit('update', { msg: '页面更新' });
+  },
+  methods: {
+    setText: function setText() {
+      var _this = this;
+      _this.text = _this.text + 1;
+      if (_this.text >= 9) {
+        _this.state = true;
+      }
+      console.log(_this.state, '_this.state');
+      uni.setTabBarBadge({
+        index: 0,
+        text: _this.state ? _this.text2 : JSON.stringify(_this.text) });
+
+    },
+    getText: function getText() {
+      var _this = this;
+      _this.text = JSON.parse(_this.text - 1);
+      if (_this.text <= '9') {
+        _this.state = false;
+      }
+      uni.setTabBarBadge({
+        index: 0,
+        text: _this.state ? _this.text2 : JSON.stringify(_this.text),
+        success: function success(res) {
+          if (_this.text <= '0') {
+            _this.text = 0;
+            uni.removeTabBarBadge({
+              index: 0 });
+
+          }
+          console.log(res, 'res');
+        } });
+
+    },
+    openMask: function openMask() {
+      this.state2 = true;
+    },
+    removeText: function removeText() {
+      uni.removeTabBarBadge({
+        index: 0 });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 21 */

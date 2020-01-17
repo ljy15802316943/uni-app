@@ -1,2 +1,0 @@
-setCssToHead(["body { background: #f8f8f8; }\n",],undefined,{path:"./pages/about/about.wxss"})();
-document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/about/about.wxml') } }));
