@@ -1,0 +1,89 @@
+page {
+  background-color: #efeff4;
+}
+.app {
+  padding: 0 0.6rem;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+.app .input-box {
+  margin-top: 2rem;
+  background-color: #ffffff;
+}
+.app .input-box::before {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  top: 2.5rem;
+  left: 20px;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
+.app .input-box .user {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 18px;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0 0.875rem;
+  box-sizing: border-box;
+}
+.app .input-box .user text {
+  width: 112rpx;
+}
+.app .input-box .user .input {
+  width: 16rem;
+}
+.app .input-box .user .item {
+  position: absolute;
+  right: 1rem;
+  top: 0.3rem;
+}
+.app .input-box .pswd {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  font-size: 18px;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0 0.875rem;
+  box-sizing: border-box;
+}
+.app .input-box .pswd text {
+  width: 112rpx;
+}
+.app .input-box .pswd .input {
+  width: 16rem;
+}
+.app .input-box .pswd .item {
+  position: absolute;
+  right: 1rem;
+  top: 2.75rem;
+}
+.app .button-login {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2.375rem;
+}
+.app .action-row {
+  margin-top: 0.6rem;
+  text-align: center;
+  width: 100%;
+}
+.app .action-row .row-text {
+  color: #007AFF;
+  width: 2.5rem;
+  margin: 0 0.5rem;
+}
+

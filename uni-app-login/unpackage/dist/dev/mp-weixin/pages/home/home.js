@@ -142,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -161,9 +161,25 @@ var _default =
 
   },
   onLoad: function onLoad() {
+    if (uni.getStorageInfoSync('pswd')) {
 
+    } else {
+      uni.showModal({
+        title: '未登录',
+        content: '您未登录，需要登录后才能继续操作',
+        showCancel: true,
+        success: function success(res) {
+          if (res.confirm) {
+            uni.navigateTo({
+              url: '../login/login' });
+
+          }
+        } });
+
+    }
   },
   methods: {} };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 21 */

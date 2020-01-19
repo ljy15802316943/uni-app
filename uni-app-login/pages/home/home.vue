@@ -17,7 +17,22 @@
 			}
 		},
 		onLoad() {
-			
+			if (uni.getStorageInfoSync('pswd')) {
+				
+			} else {
+				uni.showModal({
+					title: '未登录',
+					content: '您未登录，需要登录后才能继续操作',
+					showCancel: true,
+					success(res) {
+						if (res.confirm) {
+							uni.navigateTo({
+								url:'../login/login'
+							});
+						} 
+					}
+				});
+			}
 		},
 		methods: {
 

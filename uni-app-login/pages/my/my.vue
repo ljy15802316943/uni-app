@@ -1,6 +1,8 @@
 <template>
 	<view>
-		我的页面...
+		<view class="app-button">
+			<button type="primary" class="button" @tap="handleLogin">��¼</button>
+		</view>
 	</view>
 </template>
 
@@ -12,11 +14,17 @@
 			}
 		},
 		methods: {
-			
+			handleLogin () {
+				uni.navigateTo({
+					url: '../login/login'
+				})
+			}
 		}
 	}
 </script>
 
-<style>
-
+<style lang="less">
+	page {
+		background-color: #efeff4;
+	}
 </style>

@@ -1,1 +1,1 @@
-<view>我的页面...</view>
+<view><view class="app-button"><button class="button" type="primary" data-event-opts="{{[['tap',[['handleLogin',['$event']]]]]}}" bindtap="__e">��¼</button></view></view>

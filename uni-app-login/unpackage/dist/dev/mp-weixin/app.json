@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/login/login",
+    "common/m-icon/m-icon",
+    "pages/registered/registered",
+    "pages/uploadPswd/uploadPswd"
   ],
   "subPackages": [],
   "window": {
