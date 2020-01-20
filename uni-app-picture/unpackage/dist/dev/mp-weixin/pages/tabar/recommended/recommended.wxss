@@ -1,0 +1,91 @@
+page.data-v-0de2a006 {
+  background-color: #EFEFEF;
+}
+.recommended .card.data-v-0de2a006 {
+  background-color: #EFEFEF;
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  margin: 0;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.recommended .card .card-item.data-v-0de2a006 {
+  width: 48%;
+  height: 700rpx;
+  margin-top: 20rpx;
+  border-radius: 15rpx;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.recommended .card .card-item image.data-v-0de2a006 {
+  width: 100%;
+  height: 610rpx;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+}
+.recommended .card .card-item .image-p.data-v-0de2a006 {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #FFFFFF;
+  background-color: #FF80AB;
+  padding: 2px 6px;
+  font-size: 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.recommended .card .card-item .card-bottm.data-v-0de2a006 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+}
+.recommended .card .card-item .card-bottm .text.data-v-0de2a006 {
+  font-size: 14rpx;
+}
+.recommended .card .card-item .card-bottm .card-share-view.data-v-0de2a006 {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 14rpx 0;
+  color: #FF80AB;
+  margin: 20rpx 20rpx 20rpx;
+  font-size: 14rpx;
+  font-family: texticons;
+}
+.recommended .card .card-item .card-bottm .card-share-view.data-v-0de2a006:before {
+  content: '\E62D';
+}
+

@@ -1,0 +1,52 @@
+{
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.9.2",
+  "appid": "touristappid",
+  "projectname": "uni-app-picture",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "name": "latest",
+          "id": 0,
+          "pathName": "pages/tabar/latest/latest"
+        },
+        {
+          "name": "recommended",
+          "id": 1,
+          "pathName": "pages/tabar/recommended/recommended"
+        },
+        {
+          "name": "classify",
+          "id": 2,
+          "pathName": "pages/tabar/classify/classify"
+        },
+        {
+          "name": "my",
+          "id": 3,
+          "pathName": "pages/tabar/my/my"
+        }
+      ]
+    }
+  }
+}

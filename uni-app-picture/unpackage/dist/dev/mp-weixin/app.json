@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/tabar/latest/latest",
+    "pages/tabar/recommended/recommended",
+    "pages/tabar/classify/classify",
+    "pages/tabar/my/my"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#444444",
+    "selectedColor": "#FF80AB",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabar/latest/latest",
+        "iconPath": "static/image/index-0.png",
+        "selectedIconPath": "static/image/index-1.png",
+        "text": "最新"
+      },
+      {
+        "pagePath": "pages/tabar/recommended/recommended",
+        "iconPath": "static/image/hot-0.png",
+        "selectedIconPath": "static/image/hot-1.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/tabar/classify/classify",
+        "iconPath": "static/image/tag-0.png",
+        "selectedIconPath": "static/image/tag-1.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/tabar/my/my",
+        "iconPath": "static/image/center-0.png",
+        "selectedIconPath": "static/image/center-1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

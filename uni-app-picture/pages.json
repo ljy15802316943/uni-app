@@ -1,0 +1,83 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	    {
+            "path" : "pages/tabar/latest/latest",
+            "style" : {
+				"navigationBarTitleText": "最新",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#FF80AB"
+			}
+        }
+        ,{
+            "path" : "pages/tabar/recommended/recommended",
+            "style" : {
+            	"navigationBarTitleText": "推荐",
+            	"navigationBarTextStyle": "white",
+            	"navigationBarBackgroundColor": "#FF80AB"
+            }
+        },{
+            "path" : "pages/tabar/classify/classify",
+            "style" : {
+            	"navigationBarTitleText": "分类",
+            	"navigationBarTextStyle": "white",
+            	"navigationBarBackgroundColor": "#FF80AB"
+            }
+        },{
+            "path" : "pages/tabar/my/my",
+            "style" : {
+            	"navigationBarTitleText": "我的",
+            	"navigationBarTextStyle": "white",
+            	"navigationBarBackgroundColor": "#FF80AB"
+            }
+        }
+    ],
+	"tabBar": {
+		"color": "#444444",
+		"selectedColor": "#FF80AB",
+	    "borderStyle": "black",
+	    "backgroundColor": "#ffffff",
+	    "list": [{
+	        "pagePath": "pages/tabar/latest/latest",
+			"iconPath":"static/image/index-0.png",
+			"selectedIconPath":"static/image/index-1.png",
+	        "text": "最新"
+	    },{
+			"pagePath": "pages/tabar/recommended/recommended",
+			"iconPath":"static/image/hot-0.png",
+			"selectedIconPath":"static/image/hot-1.png",
+			"text": "推荐"
+		},{
+			"pagePath": "pages/tabar/classify/classify",
+			"iconPath":"static/image/tag-0.png",
+			"selectedIconPath":"static/image/tag-1.png",
+			"text": "分类"
+		},{
+			"pagePath": "pages/tabar/my/my",
+			"iconPath":"static/image/center-0.png",
+			"selectedIconPath":"static/image/center-1.png",
+			"text": "我的"
+		}]
+	},
+	"condition": {
+		"current": 0,
+		"list": [{
+			"name":"latest",
+			"path":"pages/tabar/latest/latest"
+		},{
+			"name":"recommended",
+			"path":"pages/tabar/recommended/recommended"
+		},{
+			"name":"classify",
+			"path":"pages/tabar/classify/classify"
+		},{
+			"name":"my",
+			"path":"pages/tabar/my/my"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
