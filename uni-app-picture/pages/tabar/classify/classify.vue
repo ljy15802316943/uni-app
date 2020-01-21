@@ -63,7 +63,7 @@
 			flex-wrap: wrap;
 			background-color: #FFFFFF;
 			width: 100%;
-			min-height: 90%;
+			min-height: 100vh;
 			flex-direction: row;
 			justify-content: flex-start;
 			align-content: flex-start;

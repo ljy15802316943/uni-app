@@ -1,0 +1,57 @@
+page {
+  background-color: #EFEFEF;
+}
+.input-box {
+  margin-top: 20rpx;
+  height: 164rpx;
+  background-color: #FFFFFF;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.input-box::before {
+  content: '';
+  position: absolute;
+  top: 82rpx;
+  width: 100%;
+  height: 1rpx;
+  background-color: #C0C0C0;
+}
+.input-box .list {
+  width: 100%;
+  height: 82rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.input-box .list input {
+  margin-left: 50rpx;
+  width: 75%;
+}
+.button-box {
+  margin: 0 auto;
+  margin-top: 50rpx;
+  width: 90%;
+  height: 100rpx;
+}
+.button-box .button-login {
+  width: 100%;
+  background-color: #FF80AB;
+}
+.button-box .button-registered {
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #FFFFFF;
+  color: #FF80AB;
+}
+

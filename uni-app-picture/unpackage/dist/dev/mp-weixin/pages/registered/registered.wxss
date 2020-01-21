@@ -1,0 +1,66 @@
+page {
+  background-color: #EFEFEF;
+}
+.input-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding: 50rpx;
+  box-sizing: border-box;
+}
+.input-box .email {
+  height: 82rpx;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+.input-box .email .insert-line {
+  width: 88rpx;
+}
+.input-box .email .email-insert-line::before {
+  position: absolute;
+  right: 50rpx;
+  bottom: 0;
+  top: 136rpx;
+  left: 64rpx;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
+.input-box .email .user-insert-line::before {
+  position: absolute;
+  right: 50rpx;
+  bottom: 0;
+  top: 218rpx;
+  left: 64rpx;
+  height: 1px;
+  content: '';
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #c8c7cc;
+}
+.input-box .email input {
+  margin-left: 20rpx;
+  width: 85%;
+}
+.submit .button {
+  width: 75%;
+  background-color: #FF80AB;
+}
+

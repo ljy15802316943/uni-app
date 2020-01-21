@@ -17,7 +17,7 @@ page {
           flex-wrap: wrap;
   background-color: #FFFFFF;
   width: 100%;
-  min-height: 90%;
+  min-height: 100vh;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;

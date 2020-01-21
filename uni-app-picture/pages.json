@@ -25,10 +25,26 @@
         },{
             "path" : "pages/tabar/my/my",
             "style" : {
-            	"navigationBarTitleText": "我的",
+            	"navigationBarTitleText": "个人中心",
             	"navigationBarTextStyle": "white",
             	"navigationBarBackgroundColor": "#FF80AB"
             }
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText": "登录",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#FF80AB"
+			}
+        }
+        ,{
+            "path" : "pages/registered/registered",
+            "style" : {
+				"navigationBarTitleText": "注册",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#FF80AB"
+			}
         }
     ],
 	"tabBar": {
@@ -72,6 +88,12 @@
 		},{
 			"name":"my",
 			"path":"pages/tabar/my/my"
+		},{
+			"name":"login",
+			"path":"pages/login/login"
+		},{
+			"name":"registered",
+			"path":"pages/registered/registered"
 		}]
 	},
 	"globalStyle": {

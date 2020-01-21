@@ -3,7 +3,9 @@
     "pages/tabar/latest/latest",
     "pages/tabar/recommended/recommended",
     "pages/tabar/classify/classify",
-    "pages/tabar/my/my"
+    "pages/tabar/my/my",
+    "pages/login/login",
+    "pages/registered/registered"
   ],
   "subPackages": [],
   "window": {

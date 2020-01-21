@@ -164,6 +164,24 @@ var _default =
 
 
   },
+  onLoad: function onLoad() {
+    console.log(1);
+    if (!uni.getStorageSync('user')) {
+      uni.showModal({
+        icon: 'none',
+        showCancel: false,
+        title: '请先登陆',
+        success: function success(res) {
+          if (res.confirm) {
+            uni.navigateTo({
+              url: '../../login/login' });
+
+            return false;
+          }
+        } });
+
+    }
+  },
   methods: {
     previewImage: function previewImage() {
       uni.previewImage({

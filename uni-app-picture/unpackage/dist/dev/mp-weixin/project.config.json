@@ -45,6 +45,16 @@
           "name": "my",
           "id": 3,
           "pathName": "pages/tabar/my/my"
+        },
+        {
+          "name": "login",
+          "id": 4,
+          "pathName": "pages/login/login"
+        },
+        {
+          "name": "registered",
+          "id": 5,
+          "pathName": "pages/registered/registered"
         }
       ]
     }
