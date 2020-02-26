@@ -1,0 +1,38 @@
+.news-detail .img-text {
+  width: 100%;
+  height: 10rem;
+  position: relative;
+}
+.news-detail .img-text text {
+  position: absolute;
+  top: 6rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  word-wrap: break-word;
+  width: 650rpx;
+  height: 2.2rem;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  lines: 2;
+  color: #ffffff;
+  overflow: hidden;
+}
+.news-detail .content {
+  padding: 0 0.6rem;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.news-detail .content .content-item {
+  margin: 0.5rem 0;
+}
+.news-detail .content .content-item .content-time {
+  margin: 0 10px;
+}
+.news-detail .content .content-item text {
+  color: gray;
+  font-size: 15px;
+}
+
