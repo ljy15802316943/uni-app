@@ -75,7 +75,7 @@
 							_this.getContent.state = false;
 						}
 					}
-				})
+				});
 			},
 			handleChufa (e) {
 				this.getNews();
