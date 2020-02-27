@@ -54,6 +54,10 @@
             "path" : "pages/home/advertising/advertising",
             "style" : {}
         }
+        ,{
+            "path" : "pages/home/TimeLimit/TimeLimit",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
