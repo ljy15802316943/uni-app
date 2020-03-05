@@ -30,7 +30,7 @@
 			<!-- 限时秒杀 -->
 			<view class="Time-limit">
 				<view class="Time-limit-top">
-					<image style="width: 140rpx; height: 30rpx;" src="/static/temp/secskill-img.jpg" mode=""></image>
+					<image style="width: 140rpx; height: 30rpx;" src="/static/temp/secskill-img.jpg" mode="aspectFill"></image>
 					<text style="font-size: 28rpx; color: #909399; margin: -4rpx 20rpx;">8点场</text>
 					<text class="number-text">07</text>
 					<text class="number-text">13</text>
@@ -40,7 +40,7 @@
 				<view class="Time-limit-bottom">
 					<scroll-view class="scroll-view_H" :scroll-x="true">
 						<view class="Time-limit-item" v-for="(item, index) in limitList" :key="index" @click="TimeLimitClick(item.content)">
-							<image :src="item.img" mode=""></image>
+							<image :src="item.img" mode="aspectFill"></image>
 							<view class="content">
 								<text>{{item.content}}</text>
 							</view>
@@ -64,16 +64,140 @@
 					</view>
 				</view>
 				<view class="deals-swiper">
-					<swiper style="width: 100%; height: 15rem;">
-						<swiper-item class="swiper-item" v-for="(item, index) in dealsList" :key="index">
+					<swiper style="width: 100%; height: 16.2rem;">
+						<swiper-item class="swiper-item" v-for="(item, index) in dealsList" :key="index" @click="dealsClick(item.title)">
 							<view class="swiper-item-left">
-								<image style="width: 100%; height: 460rpx;" :src="item.img" mode=""></image>
+								<view class="img" >
+									<image style="width: 100%; height: 460rpx; border-radius: 10rpx;" :src="item.img" mode="aspectFill"></image>
+								</view>
+								<view class="title" style="width: 100%; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+									<text style="width: 100%; font-size: 30rpx; color: #303133;">{{item.title}}</text>
+								</view>
+								<view class="">
+									<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyLeft1}}</text>
+									<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyLeft2}}</text>
+								</view>
+								<view class="" style="display: flex; flex-direction: row;">
+									<progress style="flex: 1.5; margin-right: 10rpx;" percent="60" border-radius="10" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
+									<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group}}</text>
+								</view>
 							</view>
 							<view class="swiper-item-right">
-								<text style="font-size: 30rpx; color: #303133;">{{item.title2}}</text>
+								<view class="">
+									<text style="font-size: 30rpx; color: #303133;">{{item.title2}}</text>
+								</view>
+								<view class="" style="">
+									<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyRight1}}</text>
+									<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyRight2}}</text>
+								</view>
+								<view class="" style="display: flex; flex-direction: row; align-items: center;">
+									<progress style="flex: 1.5; margin-right: 10rpx; height: 12rpx;" percent="80" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
+									<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group2}}</text>
+								</view>
+								<view class="img" style="width: 100%; margin-top: 0.5rem;">
+									<image style="width: 100%; height: 448rpx; border-radius: 10rpx;" :src="item.img2" mode="aspectFill"></image>
+								</view>
 							</view>
 						</swiper-item>
 					</swiper>
+				</view>
+			</view>
+		
+			<!-- 分类精选 -->
+			<view class="classificationOfSelected">
+				<view class="classif-top">
+					<view class="img">
+						<image src="/static/temp/h1.png" mode="aspectFit"></image>
+					</view>
+					<view class="classif-content">
+						<text style="font-size: 34rpx; ">分类精选</text>
+						<text style="font-size: 24rpx; color: #909399;">Competitive Products For You</text>
+					</view>
+					<view style="position: absolute; right: 1rem;" class="yticon icon-you">
+						
+					</view>
+				</view>
+				
+				<!-- 分类精选1 -->
+				<view class="classif-box">
+					<view class="img">
+						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409398864&di=4a12763adccf229133fb85193b7cc08f&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F19%2F20170319150032_MNwmn.jpeg" mode=""></image>
+					</view>
+					<scroll-view class="classif-box-swipe" :scroll-x="true">
+						<view class="classif-box-item" v-for="(item, index) in classifSwipeList1" :key="index">
+							<view class="list" v-if="item.img" >
+								<image :src="item.img" mode="aspectFit"></image>
+								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
+							</view>
+							<view class="list2" v-else>
+								<text>{{item.title1}}</text>
+								<text>{{item.title2}}</text>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 分类精选2 -->
+				<view class="classif-box2">
+					<view class="img">
+						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409984228&di=dee176242038c2d545b7690b303d65ea&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F5ef4da9f17faaf4612f0d5046f4161e556e9bbcfdb5b-rHjf00_fw658"></image>
+					</view>
+					<scroll-view class="classif-box-swipe" :scroll-x="true">
+						<view class="classif-box-item" v-for="(item, index) in classifSwipeList2" :key="index">
+							<view class="list" v-if="item.img" >
+								<image style="background-position: center center; background-size: cover; background-repeat: no-repeat;" :src="item.img" mode=""></image>
+								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
+							</view>
+							<view class="list2" v-else>
+								<text>{{item.title1}}</text>
+								<text>{{item.title2}}</text>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 分类精选3 -->
+				<view class="classif-box3">
+					<view class="img">
+						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409794730&di=12b840ec4f5748ef06880b85ff63e34e&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc03589ed568a8012060c82ac03c.jpg%40900w_1l_2o_100sh.jpg"></image>
+					</view>
+					<scroll-view class="classif-box-swipe" :scroll-x="true">
+						<view class="classif-box-item" v-for="(item, index) in classifSwipeList3" :key="index">
+							<view class="list" v-if="item.img" >
+								<image style="background-position: center center; background-size: cover; background-repeat: no-repeat;" :src="item.img" mode=""></image>
+								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
+							</view>
+							<view class="list2" v-else>
+								<text>{{item.title1}}</text>
+								<text>{{item.title2}}</text>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+			</view>
+		
+			<!-- 猜你喜欢 -->
+			<view class="guess-you-like">
+				<view class="guess-you-like-title">
+					<image class="img" src="/static/temp/h1.png" mode="aspectFit"></image>
+					<view class="uess-you-like-content">
+						<text class="text1">猜你喜欢</text>
+						<text class="text2">Guess You Like It</text>
+					</view>
+					<view class="yticon icon-you guess-you-like-icon">
+					</view>
+				</view>
+				<view class="guess-you-like-list">
+					<view class="guess-you-like-item" v-for="(item, index) in guessYouLikeList" :key="index">
+						<view class="img">
+							<image style="width: 100%; height: 330rpx;" :src="item.img" mode=""></image>
+						</view>
+						<view class="list-item">
+							<text class="text1">{{item.title}}</text>
+							<text class="text2">{{item.money}}</text>
+						</view>
+					</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -138,7 +262,7 @@
 						title2: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
 						moneyLeft1: '￥179',
 						moneyLeft2: '￥188',
-						moneyRight1: '￥179',
+						moneyRight1: '￥78',
 						moneyRight2: '￥188',
 						group: '6人成团',
 						group2: '10人成团',
@@ -167,7 +291,136 @@
 						img: 'https://img13.360buyimg.com/n8/jfs/t1/30343/20/1029/481370/5c449438Ecb46a15b/2b2adccb6dc742fd.jpg',
 						img2: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg'
 					}
-				]
+				],
+				// 分类精选
+				classifSwipeList1: [
+					{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4031878334,2682695508&fm=11&gp=0.jpg',
+						title: '潘歌针织连衣裙',
+						money: '￥78'
+					},{
+						img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1620020012,789258862&fm=26&gp=0.jpg',
+						title: '巧谷2019春夏季新品新款女装',
+						money: '￥108.8'
+					},{
+						img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=756705744,3505936868&fm=11&gp=0.jpg',
+						title: '私萱连衣裙',
+						money: '￥265'
+					},{
+						img: 'https://img13.360buyimg.com/n8/jfs/t1/30343/20/1029/481370/5c449438Ecb46a15b/2b2adccb6dc742fd.jpg',
+						title: '娇诗茹 ulzzang原宿风学生潮韩版春夏短',
+						money: '￥422'
+					},{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: '',
+						title1: '查看全部',
+						title2: 'More+'
+					}
+				],
+				// 分类精选2
+				classifSwipeList2: [
+					{
+						img: 'http://img001.hc360.cn/y5/M00/1B/45/wKhQUVYFE0uEZ7zVAAAAAMj3H1w418.jpg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: 'http://img.zcool.cn/community/017a4e58b4eab6a801219c77084373.jpg',
+						title: '潘歌针织连衣裙',
+						money: '￥78'
+					},{
+						img: 'http://ikids.61kids.com.cn/upload/2018-12-29/1546070626796114.jpg',
+						title: '巧谷2019春夏季新品新款女装',
+						money: '￥108.8'
+					},{
+						img: 'http://img13.360buyimg.com/popWaterMark/jfs/t865/120/206320620/138889/dcc94caa/550acedcN613e2a9d.jpg',
+						title: '私萱连衣裙',
+						money: '￥265'
+					},{
+						img: 'http://img.ef43.com.cn/product/2016/8/05100204b0c.jpg',
+						title: '娇诗茹 ulzzang原宿风学生潮韩版春夏短',
+						money: '￥422'
+					},{
+						img: 'http://img.61ef.cn/news/201903/20/2019032009251784.jpg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: '',
+						title1: '查看全部',
+						title2: 'More+'
+					}
+				],
+				// 分类精选3
+				classifSwipeList3: [
+					{
+						img: 'http://pic.rmb.bdstatic.com/819a044daa66718c2c40a48c1ba971e6.jpeg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554013048&di=a3dc9fd1406dd7bad7fbb97b5489ec04&imgtype=jpg&er=1&src=http%3A%2F%2Fimg009.hc360.cn%2Fhb%2FnKo44ac2656F831c684507E3Da0E3a26841.jpg',
+						title: '潘歌针织连衣裙',
+						money: '￥78'
+					},{
+						img: 'http://m.360buyimg.com/n12/jfs/t247/42/1078640382/162559/3628a0b/53f5ad09N0dd79894.jpg%21q70.jpg',
+						title: '巧谷2019春夏季新品新款女装',
+						money: '￥108.8'
+					},{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553418265666&di=d4a7f7eb0ae3c859edeb921641ee1c3a&imgtype=0&src=http%3A%2F%2Fimg003.hc360.cn%2Fy3%2FM02%2FF8%2F9F%2FwKhQh1TuSkGELIlQAAAAAPuLl4M987.jpg',
+						title: '私萱连衣裙',
+						money: '￥265'
+					},{
+						img: 'http://image5.suning.cn/uimg/b2c/newcatentries/0070158827-000000000622091973_2_800x800.jpg',
+						title: '娇诗茹 ulzzang原宿风学生潮韩版春夏短',
+						money: '￥422'
+					},{
+						img: 'http://img.61ef.cn/news/201903/20/2019032009251784.jpg',
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},{
+						img: '',
+						title1: '查看全部',
+						title2: 'More+'
+					}
+				],
+				// 猜你喜欢
+				guessYouLikeList: [
+					{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg',						
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},
+					{
+						img: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4031878334,2682695508&fm=11&gp=0.jpg',						
+						title: '潘歌针织连衣裙',
+						money: '￥78'
+					},
+					{
+						img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1620020012,789258862&fm=26&gp=0.jpg',						
+						title: '巧谷2019春夏季新品新款女装',
+						money: '￥108.8'
+					},
+					{
+						img: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=756705744,3505936868&fm=11&gp=0.jpg',						
+						title: '私萱连衣裙',
+						money: '￥265'
+					},
+					{
+						img: 'https://img13.360buyimg.com/n8/jfs/t1/30343/20/1029/481370/5c449438Ecb46a15b/2b2adccb6dc742fd.jpg',						
+						title: '娇诗茹 ulzzang原宿风学生潮韩版春夏短',
+						money: '￥422'
+					},
+					{
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg',						
+						title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
+						money: '￥179'
+					},
+				],
 			}
 		},
 		created() {
@@ -188,6 +441,12 @@
 			TimeLimitClick (content) {
 				uni.navigateTo({
 					url: 'TimeLimit/TimeLimit?content=' + encodeURIComponent(JSON.stringify(content))
+				});
+			},
+			// 点击了精品团购
+			dealsClick (title) {
+				uni.navigateTo({
+					url: 'TimeLimit/TimeLimit?content=' + encodeURIComponent(JSON.stringify(title))
 				});
 			}
  		},
@@ -403,12 +662,304 @@
 					.swiper-item-left {
 						flex: 1.2;
 						margin-right: 24rpx;
+						overflow-y: hidden;
+						.uni-progress-bar {
+							border-radius: 5px;
+							.uni-progress-inner-bar {
+								border-radius: 5px;
+							} 
+						}
 					}
 					.swiper-item-right {
 						flex: 0.8;
 						overflow: hidden;    
 						text-overflow:ellipsis;    
 						white-space: nowrap;
+					}
+				}
+			}
+		}
+	
+		// 分类精选
+		.classificationOfSelected {
+			width: 100%;
+			height: auto;
+			margin-top: 0.5rem;
+			position: relative;
+			.classif-top {
+				position: relative;
+				width: 100%;
+				height: 4rem;
+				background-color: #FFFFFF;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding: 1rem;
+				box-sizing: border-box;
+				.img {
+					width: 80rpx;
+					height: 80rpx;
+					image {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.classif-content {
+					display: flex;
+					flex-direction: column;
+					margin: 0 20rpx;
+				}
+			}
+			.classif-box {
+				width: 100%;
+				height: 12rem;
+				position: relative;
+				.img {
+					width: 100%;
+					height: 272rpx;
+					image {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.classif-box-swipe {
+					width: 718rpx;
+					height: 8rem;
+					margin-left: 32rpx;
+					position: absolute;
+					bottom: 20rpx;
+					border-radius: 6rpx;
+					padding: 0.5rem;
+					box-sizing: border-box;
+					background-color: #FFFFFF;
+					display: flex;
+					flex-direction: row;
+					white-space: nowrap;
+					.classif-box-item {
+						width: 180rpx;
+						height: 100%;
+						display: inline-block;
+						margin: 0 10rpx;
+						position: relative;
+						.list {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							image {
+								width: 180rpx;
+								height: 180rpx;
+							}
+						}
+						.list2 {
+							width: 180rpx;
+							height: 180rpx;
+							background-color: #f3f3f3;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							position: absolute;
+							top: -4.69rem;
+							text {
+								font-size: 28rpx;
+							    color: #909399;
+							}
+						}
+					}
+				}
+			}
+			.classif-box2 {
+				width: 100%;
+				height: 12rem;
+				position: relative;
+				.img {
+					width: 100%;
+					height: 272rpx;
+					image {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.classif-box-swipe {
+					width: 718rpx;
+					height: 8rem;
+					margin-left: 32rpx;
+					position: absolute;
+					bottom: 20rpx;
+					border-radius: 6rpx;
+					padding: 0.5rem;
+					box-sizing: border-box;
+					background-color: #FFFFFF;
+					display: flex;
+					flex-direction: row;
+					white-space: nowrap;
+					.classif-box-item {
+						width: 180rpx;
+						height: 100%;
+						display: inline-block;
+						margin: 0 10rpx;
+						position: relative;
+						.list {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							image {
+								width: 180rpx;
+								height: 180rpx;
+							}
+						}
+						.list2 {
+							width: 180rpx;
+							height: 180rpx;
+							background-color: #f3f3f3;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							position: absolute;
+							top: -4.69rem;
+							text {
+								font-size: 28rpx;
+							    color: #909399;
+							}
+						}
+					}
+				}
+			}
+			.classif-box3 {
+				width: 100%;
+				height: 12rem;
+				position: relative;
+				.img {
+					width: 100%;
+					height: 272rpx;
+					image {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.classif-box-swipe {
+					width: 718rpx;
+					height: 8rem;
+					margin-left: 32rpx;
+					position: absolute;
+					bottom: 20rpx;
+					border-radius: 6rpx;
+					padding: 0.5rem;
+					box-sizing: border-box;
+					background-color: #FFFFFF;
+					display: flex;
+					flex-direction: row;
+					white-space: nowrap;
+					.classif-box-item {
+						width: 180rpx;
+						height: 100%;
+						display: inline-block;
+						margin: 0 10rpx;
+						position: relative;
+						.list {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							image {
+								width: 180rpx;
+								height: 180rpx;
+							}
+						}
+						.list2 {
+							width: 180rpx;
+							height: 180rpx;
+							background-color: #f3f3f3;
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							align-items: center;
+							position: absolute;
+							top: -4.69rem;
+							text {
+								font-size: 28rpx;
+							    color: #909399;
+							}
+						}
+					}
+				}
+			}
+		
+		}
+	
+		// 猜你喜欢
+		.guess-you-like {
+			width: 100%;
+			height: auto;
+			padding: 1rem;
+			box-sizing: border-box;
+			background-color: #FFFFFF;
+			.guess-you-like-title {
+				width: 100%;
+				height: 3rem;
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				.img {
+					width: 80rpx;
+					height: 80rpx;
+				}
+				.uess-you-like-content {
+					margin: 0 20rpx;
+					display: flex;
+					flex-direction: column;
+					.text1 {
+						font-size: 34rpx;
+					}
+					.text2 {
+						font-size: 24rpx;
+						color: #909399;
+					}
+				}
+				.guess-you-like-icon {
+					position: absolute;
+					right: 0rem;
+				}
+			}
+			.guess-you-like-list {
+				width: 100%;
+				height: auto;
+				background-color: #FFFFFF;
+				border: 1px solid blue;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				.guess-you-like-item {
+					width: 48%;
+					height: auto;
+					padding: 0.5rem 0;
+					box-sizing: border-box;
+					display: flex;
+					flex-direction: column;
+					.img {
+						width: 100%;
+						height: 330rpx;
+					}
+					.list-item {
+						display: flex;
+						flex-direction: column;
+						.text1 {
+							font-size: 32rpx;
+							color: #303133;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							white-space: nowrap;
+							margin: 10rpx 0rpx;
+						}
+						.text2 {
+							font-size: 32rpx;
+							color: #fa436a;
+						}
 					}
 				}
 			}

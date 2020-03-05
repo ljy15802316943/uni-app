@@ -58,6 +58,10 @@
             "path" : "pages/home/TimeLimit/TimeLimit",
             "style" : {}
         }
+        ,{
+            "path" : "pages/TheDetailsShow/TheDetailsShow",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
