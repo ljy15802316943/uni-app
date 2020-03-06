@@ -1,0 +1,15 @@
+.text1 {
+  font-size: 34rpx;
+  color: #fa436a;
+}
+
+.text2 {
+	color: #909399;
+	text-decoration: line-through;
+	font-size: 26rpx;
+}
+
+.text3 {
+	font-size: 24rpx;
+	color: #909399;
+}

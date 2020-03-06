@@ -14,6 +14,7 @@
 
 <style>
 	/*每个页面公共css */
+	@import "./common/css/new_file.css";
 	@font-face {
 		font-family: yticon;
 		font-weight: normal;
