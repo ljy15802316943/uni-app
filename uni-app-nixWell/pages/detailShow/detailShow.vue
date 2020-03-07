@@ -33,23 +33,32 @@
 				<text style="font-size: 28rpx;color: #fa436a; position: absolute; right: 1rem; line-height: 2rem;" class="yticon icon-you"></text>
 			</view>
 		</scroll-view>
+		<Share @closeShare="closeShare" v-if="shareState"></Share>
 	</view>
 </template>
 
 <script>
+	import Share from '../../components/share.vue'; //分享
 	export default {
+		components: {
+			Share
+		},
 		data() {
 			return {
 				swiperList: [
 					{image: 'https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg'},
 					{image: 'https://gd3.alicdn.com/imgextra/i3/TB1RPFPPFXXXXcNXpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg'},
 					{image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg'}
-				]
+				],
+				shareState: false,
 			}
 		},
 		methods: {
 			handleShare () {
-				console.log("");
+				this.shareState = true;
+			},
+			closeShare () {
+				this.shareState = false;
 			}
 		}
 	}
