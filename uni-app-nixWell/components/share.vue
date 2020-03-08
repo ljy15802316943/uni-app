@@ -61,7 +61,6 @@
 					title: '分享给' + newContent,
 					icon: 'none'
 				});
-				console.log(newContent, 1);
 			}
 		}
 	}

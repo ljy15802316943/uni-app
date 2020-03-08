@@ -22,7 +22,7 @@
 					<text class="text3">浏览量: 768</text>
 				</view>
 			</view>
-			<view class="share" @click="handleShare">
+			<view class="share-immediately" @click="handleShare">
 				<view class="text-icon">
 					<text style="font-size: 28rpx;color: #FFFFFF;" class="yticon icon-xingxing text-icon1"></text>
 					<text style="font-size: 24rpx;color: red;">返</text>
@@ -124,7 +124,7 @@
 				align-items: flex-end;
 			}
 		}
-		.share {
+		.share-immediately {
 			display: flex;
 			flex-direction: row;
 			align-items: center;

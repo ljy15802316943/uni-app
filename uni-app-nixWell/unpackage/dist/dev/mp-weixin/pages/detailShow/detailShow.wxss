@@ -76,7 +76,7 @@ page {
   -webkit-align-items: flex-end;
           align-items: flex-end;
 }
-.detail-show .share {
+.detail-show .share-immediately {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -94,7 +94,7 @@ page {
   background-color: #fbebf6;
   position: relative;
 }
-.detail-show .share .text-icon {
+.detail-show .share-immediately .text-icon {
   width: 2rem;
   height: auto;
   border: 1px solid #fa436a;
@@ -114,7 +114,7 @@ page {
   overflow: hidden;
   z-index: 100;
 }
-.detail-show .share .text-icon::before {
+.detail-show .share-immediately .text-icon::before {
   position: absolute;
   left: 0.9rem;
   z-index: 88;
@@ -124,7 +124,7 @@ page {
   background-color: #fa436a;
   border-radius: 50%;
 }
-.detail-show .share .text-icon .text-icon1 {
+.detail-show .share-immediately .text-icon .text-icon1 {
   z-index: 99;
   margin-left: -0.2rem;
 }
