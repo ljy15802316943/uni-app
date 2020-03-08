@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Share = function Share() {return __webpack_require__.e(/*! import() | components/share */ "components/share").then(__webpack_require__.bind(null, /*! ../../components/share.vue */ 70));};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Share = function Share() {return __webpack_require__.e(/*! import() | components/share */ "components/share").then(__webpack_require__.bind(null, /*! ../../components/share.vue */ 67));};
 
 
 
@@ -183,17 +183,14 @@ var _default = {
       swiperList: [
       { image: 'https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg' },
       { image: 'https://gd3.alicdn.com/imgextra/i3/TB1RPFPPFXXXXcNXpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg' },
-      { image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg' }],
+      { image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg' }] };
 
-      shareState: false };
 
   },
   methods: {
+    // 点击显示分享
     handleShare: function handleShare() {
-      this.shareState = true;
-    },
-    closeShare: function closeShare() {
-      this.shareState = false;
+      this.$refs.refShare.handleShowShare();
     } } };exports.default = _default;
 
 /***/ }),

@@ -33,7 +33,7 @@
 				<text style="font-size: 28rpx;color: #fa436a; position: absolute; right: 1rem; line-height: 2rem;" class="yticon icon-you"></text>
 			</view>
 		</scroll-view>
-		<Share @closeShare="closeShare" v-if="shareState"></Share>
+		<Share ref="refShare"></Share>
 	</view>
 </template>
 
@@ -50,16 +50,13 @@
 					{image: 'https://gd3.alicdn.com/imgextra/i3/TB1RPFPPFXXXXcNXpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg'},
 					{image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg'}
 				],
-				shareState: false,
 			}
 		},
 		methods: {
+			// 点击显示分享
 			handleShare () {
-				this.shareState = true;
+				this.$refs.refShare.handleShowShare(); 
 			},
-			closeShare () {
-				this.shareState = false;
-			}
 		}
 	}
 </script>

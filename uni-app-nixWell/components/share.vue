@@ -1,18 +1,18 @@
 <template>
 	<view class="share">
-		<view class="share-box" @click="closeShare">
+		<view :class="{'share-box': shareState}" @click="handleHiddenShare">
 		</view>
-		<view class="share-item" :class="{'share-item-leave': leave}">
+		<view class="share-item" :class="{'share-show': shareState}">
 			<view class="share-to">
 				<text>分享到</text>
 			</view>
 			<view class="content">
-				<view class="block" v-for="(item, index) in shareList" :key="index">
+				<view class="block" v-for="(item, index) in shareList" :key="index" @touchstart="handleShareListClick(item.content)">
 					<image :src="item.image" mode="aspectFill"></image>
 					<text>{{item.content}}</text>
 				</view>
 			</view>
-			<view class="cancel" @click.stop="closeShare">
+			<view class="cancel" @click.stop="handleHiddenShare">
 				<text>取消</text>
 			</view>
 		</view>
@@ -32,31 +32,42 @@
 					{image: '/static/temp/share_qq.png', content: 'QQ好友'},
 					{image: '/static/temp/share_qqzone.png', content: 'QQ空间'},
 				],
-				leave: null,
+				shareState: false,
 			};
 		},
 		methods: {
-			closeShare () {
-				this.leave = true; // 开启离开动画
-				setTimeout( () => {
-					this.$emit('closeShare')
-				}, 299);
+			// 显示分享
+			handleShowShare () {
+				this.shareState = true;
+			},
+			// 隐藏分享
+			handleHiddenShare () {
+				this.shareState = false;
+			},
+			// 点击分享的图标
+			handleShareListClick (content) {
+				let newContent = '';
+				if (content == '微信好友') {
+					newContent = '微信好友';
+				} else if (content == '朋友圈') {
+					newContent = '朋友圈';
+				} else if (content == 'QQ好友') {
+					newContent = 'QQ好友';
+				} else if (content == 'QQ空间') {
+					newContent = 'QQ空间';
+				};
+				this.handleHiddenShare();
+				uni.showToast({
+					title: '分享给' + newContent,
+					icon: 'none'
+				});
+				console.log(newContent, 1);
 			}
 		}
 	}
 </script>
 
 <style lang="less">
-	// 进入分享动画
-	@keyframes action_skew{
-		0%{transform: translateY(100%);}
-		100%{ transform: translateY(0);}
-	}
-	// 离开分享动画
-	@keyframes leave_skew{
-		0%{transform: translateY(0);}
-		100%{ transform: translateY(100%);}
-	}
 	.share {
 		width: 100%;
 		height: 100%;
@@ -70,7 +81,12 @@
 		transition: .3s;
 		z-index: 999;
 	}
-	// 进入分享
+	// 进入分享动画
+	.share-show {
+		transition: all 0.3s ease;
+		transform: translateY(0%) !important;
+	}
+	// 离开分享动画
 	.share-item {
 		position: fixed;
 		left: 0;
@@ -78,8 +94,9 @@
 		width: 100%;
 		height: auto;
 		background-color: #FFFFFF;
-		z-index: 1000;
-		animation: action_skew .3s;
+		transition: all 0.3s ease;
+		transform: translateY(100%);
+		z-index: 1999;
 		.share-to {
 			width: 100%;
 			height: 3rem;
@@ -136,9 +153,5 @@
 			align-items: center;
 			border-top: 1rpx solid #E4E7ED;
 		}
-	}
-	// 离开分享
-	.share-item-leave {
-		animation: leave_skew .3s;
 	}
 </style>
