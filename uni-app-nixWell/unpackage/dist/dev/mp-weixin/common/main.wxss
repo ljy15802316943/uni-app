@@ -27,6 +27,16 @@
 	font-size: 24rpx;
 	color: #909399;
 }
+.font-size {
+	font-size: 26rpx;
+	color: #606266;
+}
+.yticon-icon-you {
+	position: absolute;
+	right: 1rem;
+	font-size: 30rpx;
+	color: #888;
+}
 @font-face {
 	font-family: yticon;
 	font-weight: normal;

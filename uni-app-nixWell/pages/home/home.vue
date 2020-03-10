@@ -1,206 +1,204 @@
 <template>
 	<view class="home">
-		<scroll-view style="display: inline; height: 33rem" :scroll-y="true">
-			<view class="home-top">
-				<swiper class="swiper" :circular="true" @change="currentChange">
-					<swiper-item style="border-radius: 12rpx;" v-for="(item, index) in imageSrc" :key="index"  @click="currentClick(index)">
-						<image :src="item" mode="aspectFill"></image>
+		<view class="home-top">
+			<swiper class="swiper" :circular="true" @change="currentChange">
+				<swiper-item style="border-radius: 12rpx;" v-for="(item, index) in imageSrc" :key="index"  @click="currentClick(index)">
+					<image :src="item" mode="aspectFill"></image>
+				</swiper-item>
+			</swiper>
+			<view class="prompt">
+				<text>{{prompt.index}}</text>
+				<text style="margin: 0 0.15rem;">/</text>
+				<text>{{prompt.number}}</text>
+			</view>
+		</view>
+		
+		<!-- 分类栏 -->
+		<view class="classified-section">
+			<view class="classified-list">
+				<view class="classified-item" v-for="(item, index) in classifiedList" :key="index">
+					<image :src="item.img" mode=""></image>
+					<text style="margin-top: 0.5rem; font-size: 26rpx;">{{item.content}}</text>
+				</view>
+			</view>
+			<view class="classified-img">
+				<image src="/static/temp/ad1.jpg" mode=""></image>
+			</view>
+		</view>
+	
+		<!-- 限时秒杀 -->
+		<view class="Time-limit">
+			<view class="Time-limit-top">
+				<image style="width: 140rpx; height: 30rpx;" src="/static/temp/secskill-img.jpg" mode="aspectFill"></image>
+				<text style="font-size: 28rpx; color: #909399; margin: -4rpx 20rpx;">8点场</text>
+				<text class="number-text">07</text>
+				<text class="number-text">13</text>
+				<text class="number-text">55</text>
+				<text class="yticon icon-you yticon-content"></text>
+			</view>
+			<view class="Time-limit-bottom">
+				<scroll-view class="scroll-view_H" :scroll-x="true">
+					<view class="Time-limit-item" v-for="(item, index) in limitList" :key="index" @click="TimeLimitClick(item.content)">
+						<image :src="item.img" mode="aspectFill"></image>
+						<view class="content">
+							<text>{{item.content}}</text>
+						</view>
+						<view class="money">
+							<text>{{item.money}}</text>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+	
+		<!-- 精品团购 -->
+		<view class="deals">
+			<view class="deals-top">
+				<image style="width: 80rpx; height: 80rpx; margin-right: 20rpx;" src="/static/temp/h1.png" mode=""></image>
+				<view class="deals-top-content">
+					<text style="font-size: 34rpx;">精品团购</text>
+					<text style="font-size: 24rpx; color: #909399;">Guess You Like It</text>
+				</view>
+				<view class="yticon icon-you deals-top-yticon">
+				</view>
+			</view>
+			<view class="deals-swiper">
+				<swiper class="swiper">
+					<swiper-item class="swiper-item" v-for="(item, index) in dealsList" :key="index" @click="dealsClick(item.title)">
+						<view class="swiper-item-left">
+							<view class="img" >
+								<image style="width: 100%; height: 460rpx; border-radius: 10rpx;" :src="item.img" mode="aspectFill"></image>
+							</view>
+							<view class="title">
+								<text style="width: 100%; font-size: 30rpx; color: #303133;">{{item.title}}</text>
+							</view>
+							<view class="">
+								<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyLeft1}}</text>
+								<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyLeft2}}</text>
+							</view>
+							<view class="" style="display: flex; flex-direction: row;">
+								<progress style="flex: 1.5; margin-right: 10rpx;" percent="60" border-radius="10" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
+								<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group}}</text>
+							</view>
+						</view>
+						<view class="swiper-item-right" style="overflow: hidden;">
+							<view class="title" style="overflow: hidden;">
+								<text style="font-size: 30rpx; color: #303133; overflow: hidden;text-overflow: ellipsis;">{{item.title2}}</text>
+							</view>
+							<view class="" style="">
+								<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyRight1}}</text>
+								<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyRight2}}</text>
+							</view>
+							<view class="" style="display: flex; flex-direction: row; align-items: center;">
+								<progress style="flex: 1.5; margin-right: 10rpx; height: 12rpx;" percent="80" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
+								<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group2}}</text>
+							</view>
+							<view class="img" style="width: 100%; margin-top: 0.5rem;">
+								<image style="width: 100%; height: 448rpx; border-radius: 10rpx;" :src="item.img2" mode="aspectFill"></image>
+							</view>
+						</view>
 					</swiper-item>
 				</swiper>
-				<view class="prompt">
-					<text>{{prompt.index}}</text>
-					<text style="margin: 0 0.15rem;">/</text>
-					<text>{{prompt.number}}</text>
+			</view>
+		</view>
+	
+		<!-- 分类精选 -->
+		<view class="classificationOfSelected">
+			<view class="classif-top">
+				<view class="img">
+					<image src="/static/temp/h1.png" mode="aspectFit"></image>
+				</view>
+				<view class="classif-content">
+					<text style="font-size: 34rpx; ">分类精选</text>
+					<text style="font-size: 24rpx; color: #909399;">Competitive Products For You</text>
+				</view>
+				<view style="position: absolute; right: 1rem;" class="yticon icon-you">
+					
 				</view>
 			</view>
 			
-			<!-- 分类栏 -->
-			<view class="classified-section">
-				<view class="classified-list">
-					<view class="classified-item" v-for="(item, index) in classifiedList" :key="index">
-						<image :src="item.img" mode=""></image>
-						<text style="margin-top: 0.5rem; font-size: 26rpx;">{{item.content}}</text>
-					</view>
+			<!-- 分类精选1 -->
+			<view class="classif-box">
+				<view class="img">
+					<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409398864&di=4a12763adccf229133fb85193b7cc08f&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F19%2F20170319150032_MNwmn.jpeg" mode=""></image>
 				</view>
-				<view class="classified-img">
-					<image src="/static/temp/ad1.jpg" mode=""></image>
-				</view>
-			</view>
-		
-			<!-- 限时秒杀 -->
-			<view class="Time-limit">
-				<view class="Time-limit-top">
-					<image style="width: 140rpx; height: 30rpx;" src="/static/temp/secskill-img.jpg" mode="aspectFill"></image>
-					<text style="font-size: 28rpx; color: #909399; margin: -4rpx 20rpx;">8点场</text>
-					<text class="number-text">07</text>
-					<text class="number-text">13</text>
-					<text class="number-text">55</text>
-					<text class="yticon icon-you yticon-content"></text>
-				</view>
-				<view class="Time-limit-bottom">
-					<scroll-view class="scroll-view_H" :scroll-x="true">
-						<view class="Time-limit-item" v-for="(item, index) in limitList" :key="index" @click="TimeLimitClick(item.content)">
+				<scroll-view class="classif-box-swipe" :scroll-x="true">
+					<view class="classif-box-item" v-for="(item, index) in classifSwipeList1" :key="index" @click="handleClassifList('分类精选1', item.title)">
+						<view class="list" v-if="item.img" >
 							<image :src="item.img" mode="aspectFill"></image>
-							<view class="content">
-								<text>{{item.content}}</text>
-							</view>
-							<view class="money">
-								<text>{{item.money}}</text>
-							</view>
+							<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+							<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
 						</view>
-					</scroll-view>
-				</view>
+						<view class="list2" v-else>
+							<text>{{item.title1}}</text>
+							<text>{{item.title2}}</text>
+						</view>
+					</view>
+				</scroll-view>
 			</view>
-		
-			<!-- 精品团购 -->
-			<view class="deals">
-				<view class="deals-top">
-					<image style="width: 80rpx; height: 80rpx; margin-right: 20rpx;" src="/static/temp/h1.png" mode=""></image>
-					<view class="deals-top-content">
-						<text style="font-size: 34rpx;">精品团购</text>
-						<text style="font-size: 24rpx; color: #909399;">Guess You Like It</text>
-					</view>
-					<view class="yticon icon-you deals-top-yticon">
-					</view>
+			<!-- 分类精选2 -->
+			<view class="classif-box2">
+				<view class="img">
+					<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409984228&di=dee176242038c2d545b7690b303d65ea&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F5ef4da9f17faaf4612f0d5046f4161e556e9bbcfdb5b-rHjf00_fw658"></image>
 				</view>
-				<view class="deals-swiper">
-					<swiper style="width: 100%; height: 18.4rem;">
-						<swiper-item class="swiper-item" v-for="(item, index) in dealsList" :key="index" @click="dealsClick(item.title)">
-							<view class="swiper-item-left">
-								<view class="img" >
-									<image style="width: 100%; height: 460rpx; border-radius: 10rpx;" :src="item.img" mode="aspectFill"></image>
-								</view>
-								<view class="title">
-									<text style="width: 100%; font-size: 30rpx; color: #303133;">{{item.title}}</text>
-								</view>
-								<view class="">
-									<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyLeft1}}</text>
-									<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyLeft2}}</text>
-								</view>
-								<view class="" style="display: flex; flex-direction: row;">
-									<progress style="flex: 1.5; margin-right: 10rpx;" percent="60" border-radius="10" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
-									<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group}}</text>
-								</view>
-							</view>
-							<view class="swiper-item-right" style="overflow: hidden;">
-								<view class="title" style="overflow: hidden;">
-									<text style="font-size: 30rpx; color: #303133; overflow: hidden;text-overflow: ellipsis;">{{item.title2}}</text>
-								</view>
-								<view class="" style="">
-									<text style="font-size: 30rpx; color: #fa436a;">{{item.moneyRight1}}</text>
-									<text style="font-size: 26rpx; color: #909399; margin: 0 6rpx; text-decoration: line-through;">{{item.moneyRight2}}</text>
-								</view>
-								<view class="" style="display: flex; flex-direction: row; align-items: center;">
-									<progress style="flex: 1.5; margin-right: 10rpx; height: 12rpx;" percent="80" activeColor="rgb(250, 67, 106)" backgroundColor="rgb(235, 235, 235)" />
-									<text style="flex: 0.5; font-size: 24rpx;color: #303133;">{{item.group2}}</text>
-								</view>
-								<view class="img" style="width: 100%; margin-top: 0.5rem;">
-									<image style="width: 100%; height: 448rpx; border-radius: 10rpx;" :src="item.img2" mode="aspectFill"></image>
-								</view>
-							</view>
-						</swiper-item>
-					</swiper>
-				</view>
+				<scroll-view class="classif-box-swipe" :scroll-x="true">
+					<view class="classif-box-item" v-for="(item, index) in classifSwipeList2" :key="index" @click="handleClassifList('分类精选2', item.title)">
+						<view class="list" v-if="item.img" >
+							<image :src="item.img" mode="aspectFill"></image>
+							<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+							<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
+						</view>
+						<view class="list2" v-else>
+							<text>{{item.title1}}</text>
+							<text>{{item.title2}}</text>
+						</view>
+					</view>
+				</scroll-view>
 			</view>
-		
-			<!-- 分类精选 -->
-			<view class="classificationOfSelected">
-				<view class="classif-top">
-					<view class="img">
-						<image src="/static/temp/h1.png" mode="aspectFit"></image>
-					</view>
-					<view class="classif-content">
-						<text style="font-size: 34rpx; ">分类精选</text>
-						<text style="font-size: 24rpx; color: #909399;">Competitive Products For You</text>
-					</view>
-					<view style="position: absolute; right: 1rem;" class="yticon icon-you">
-						
-					</view>
+			<!-- 分类精选3 -->
+			<view class="classif-box3">
+				<view class="img">
+					<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409794730&di=12b840ec4f5748ef06880b85ff63e34e&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc03589ed568a8012060c82ac03c.jpg%40900w_1l_2o_100sh.jpg"></image>
 				</view>
-				
-				<!-- 分类精选1 -->
-				<view class="classif-box">
-					<view class="img">
-						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409398864&di=4a12763adccf229133fb85193b7cc08f&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201703%2F19%2F20170319150032_MNwmn.jpeg" mode=""></image>
-					</view>
-					<scroll-view class="classif-box-swipe" :scroll-x="true">
-						<view class="classif-box-item" v-for="(item, index) in classifSwipeList1" :key="index">
-							<view class="list" v-if="item.img" >
-								<image :src="item.img" mode="aspectFill"></image>
-								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
-								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
-							</view>
-							<view class="list2" v-else>
-								<text>{{item.title1}}</text>
-								<text>{{item.title2}}</text>
-							</view>
+				<scroll-view class="classif-box-swipe" :scroll-x="true">
+					<view class="classif-box-item" v-for="(item, index) in classifSwipeList3" :key="index" @click="handleClassifList('分类精选3', item.title)">
+						<view class="list" v-if="item.img" >
+							<image style="background-position: center center; background-size: cover; background-repeat: no-repeat;" :src="item.img" mode=""></image>
+							<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
+							<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
 						</view>
-					</scroll-view>
-				</view>
-				<!-- 分类精选2 -->
-				<view class="classif-box2">
-					<view class="img">
-						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409984228&di=dee176242038c2d545b7690b303d65ea&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F5ef4da9f17faaf4612f0d5046f4161e556e9bbcfdb5b-rHjf00_fw658"></image>
-					</view>
-					<scroll-view class="classif-box-swipe" :scroll-x="true">
-						<view class="classif-box-item" v-for="(item, index) in classifSwipeList2" :key="index">
-							<view class="list" v-if="item.img" >
-								<image :src="item.img" mode="aspectFill"></image>
-								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
-								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
-							</view>
-							<view class="list2" v-else>
-								<text>{{item.title1}}</text>
-								<text>{{item.title2}}</text>
-							</view>
+						<view class="list2" v-else>
+							<text>{{item.title1}}</text>
+							<text>{{item.title2}}</text>
 						</view>
-					</scroll-view>
-				</view>
-				<!-- 分类精选3 -->
-				<view class="classif-box3">
-					<view class="img">
-						<image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553409794730&di=12b840ec4f5748ef06880b85ff63e34e&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01dc03589ed568a8012060c82ac03c.jpg%40900w_1l_2o_100sh.jpg"></image>
 					</view>
-					<scroll-view class="classif-box-swipe" :scroll-x="true">
-						<view class="classif-box-item" v-for="(item, index) in classifSwipeList3" :key="index">
-							<view class="list" v-if="item.img" >
-								<image style="background-position: center center; background-size: cover; background-repeat: no-repeat;" :src="item.img" mode=""></image>
-								<text style="margin: 10rpx 0; font-size: 26rpx; color: #303133; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{item.title}}</text>
-								<text style="font-size: 26rpx; color: #fa436a;">{{item.money}}</text>
-							</view>
-							<view class="list2" v-else>
-								<text>{{item.title1}}</text>
-								<text>{{item.title2}}</text>
-							</view>
-						</view>
-					</scroll-view>
-				</view>
+				</scroll-view>
 			</view>
-		
-			<!-- 猜你喜欢 -->
-			<view class="guess-you-like">
+		</view>
+	
+		<!-- 猜你喜欢 -->
+		<view class="guess-you-like">
 				<view class="guess-you-like-title">
 					<image class="img" src="/static/temp/h1.png" mode="aspectFit"></image>
 					<view class="uess-you-like-content">
 						<text class="text1">猜你喜欢</text>
-						<text class="text2">Guess You Like It</text>
+						<text class="text2" style="text-decoration: none;">Guess You Like It</text>
 					</view>
 					<view class="yticon icon-you guess-you-like-icon">
 					</view>
 				</view>
 				<view class="guess-you-like-list">
-					<view class="guess-you-like-item" v-for="(item, index) in guessYouLikeList" :key="index">
+					<view class="guess-you-like-item" v-for="(item, index) in guessYouLikeList" :key="index" @click="handleGuessYouLikeList(item.title)">
 						<view class="img">
 							<image style="width: 100%; height: 330rpx;" :src="item.img" mode="aspectFill"></image>
 						</view>
 						<view class="list-item">
 							<text class="text1">{{item.title}}</text>
-							<text class="text2">{{item.money}}</text>
+							<text class="list-item-text2">{{item.money}}</text>
 						</view>
 					</view>
 				</view>
 			</view>
-		</scroll-view>
 	</view>
 </template>
 
@@ -421,6 +419,7 @@
 						money: '￥179'
 					},
 				],
+				text: '点击了'
 			}
 		},
 		created() {
@@ -434,19 +433,31 @@
 			// 点击swiper
 			currentClick (index) {
 				uni.navigateTo({
-					url: '/pages/detailShow/detailShow?index=' + encodeURIComponent(JSON.stringify(index))
+					url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了轮播图'))
 				});
 			},
 			// 点击了限时秒杀。 
-			TimeLimitClick (content) {
+			TimeLimitClick (text) {
 				uni.navigateTo({
-					url: '/pages/detailShow/detailShow?content=' + encodeURIComponent(JSON.stringify(content))
+					url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了' + text))
 				});
 			},
 			// 点击了精品团购
-			dealsClick (title) {
+			dealsClick (text) {
 				uni.navigateTo({
-					url: 'TimeLimit/TimeLimit?content=' + encodeURIComponent(JSON.stringify(title))
+					url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了' + text))
+				});
+			},
+			// 点击了分类精选
+			handleClassifList (val, title) {
+				uni.navigateTo({
+					url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify(this.text + title))
+				});
+			},
+			// 点击了猜你喜欢
+			handleGuessYouLikeList (title) {
+				uni.navigateTo({
+					url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify(this.text + title))
 				});
 			}
  		},
@@ -656,10 +667,15 @@
 				width: 100%;
 				height: auto;
 				margin-top: 1rem;
+				.swiper {
+					width: 100%;
+					height: 20rem;
+					margin-bottom: -0.5rem;
+				} 
 				.swiper-item {
 					display:  flex;
 					width: 100%;
-					height: 18.4rem;
+					height: 100%;
 					.swiper-item-left {
 						flex: 1.2;
 						margin-right: 24rpx;
@@ -985,7 +1001,7 @@
 							white-space: nowrap;
 							margin: 10rpx 0rpx;
 						}
-						.text2 {
+						.list-item-text2 {
 							font-size: 32rpx;
 							color: #fa436a;
 						}

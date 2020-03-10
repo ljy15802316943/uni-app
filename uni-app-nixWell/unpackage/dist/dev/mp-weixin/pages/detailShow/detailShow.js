@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Share = function Share() {return __webpack_require__.e(/*! import() | components/share */ "components/share").then(__webpack_require__.bind(null, /*! ../../components/share.vue */ 67));};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Share = function Share() {return __webpack_require__.e(/*! import() | components/share */ "components/share").then(__webpack_require__.bind(null, /*! ../../components/share.vue */ 67));};var BuyType = function BuyType() {return __webpack_require__.e(/*! import() | components/buyType */ "components/buyType").then(__webpack_require__.bind(null, /*! ../../components/buyType.vue */ 74));};var ShoppingCart = function ShoppingCart() {return __webpack_require__.e(/*! import() | components/shoppingCart */ "components/shoppingCart").then(__webpack_require__.bind(null, /*! ../../components/shoppingCart.vue */ 81));};
 
 
 
@@ -173,24 +173,137 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-//分享
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 购物车
 var _default = {
   components: {
-    Share: Share },
+    Share: Share,
+    BuyType: BuyType,
+    ShoppingCart: ShoppingCart },
 
   data: function data() {
     return {
       swiperList: [
       { image: 'https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg' },
       { image: 'https://gd3.alicdn.com/imgextra/i3/TB1RPFPPFXXXXcNXpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg' },
-      { image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg' }] };
+      { image: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg' }],
 
+      buyType: {
+        sizeList: [// 尺寸
+        { content: 'XS' },
+        { content: 'S' },
+        { content: 'M' },
+        { content: 'L' },
+        { content: 'XL' },
+        { content: 'XXL' }],
 
+        sizeListValue: 'XS',
+        sizeColorList: [// 颜色
+        { content: '白色' },
+        { content: '珊瑚粉' },
+        { content: '草木绿' }],
+
+        sizeColorListValue: '白色' },
+
+      imageDetailList: [
+      { image: 'https://gd3.alicdn.com/imgextra/i4/479184430/O1CN01nCpuLc1iaz4bcSN17_!!479184430.jpg_400x400.jpg' },
+      { image: 'https://gd2.alicdn.com/imgextra/i2/479184430/O1CN01gwbN931iaz4TzqzmG_!!479184430.jpg_400x400.jpg' },
+      { image: 'https://gd3.alicdn.com/imgextra/i3/479184430/O1CN018wVjQh1iaz4aupv1A_!!479184430.jpg_400x400.jpg' },
+      { image: 'https://gd4.alicdn.com/imgextra/i4/479184430/O1CN01tWg4Us1iaz4auqelt_!!479184430.jpg_400x400.jpg' },
+      { image: 'https://gd1.alicdn.com/imgextra/i1/479184430/O1CN01Tnm1rU1iaz4aVKcwP_!!479184430.jpg_400x400.jpg' }],
+
+      text: '' };
+
+  },
+  onLoad: function onLoad(val) {
+    this.text = JSON.parse(decodeURIComponent(val.text));
+  },
+  onReady: function onReady() {
+    this.$api.msg(this.text);
   },
   methods: {
     // 点击显示分享
     handleShare: function handleShare() {
       this.$refs.refShare.handleShowShare();
+    },
+    // 点击触摸类型
+    handleBuyType: function handleBuyType() {
+      this.$refs.refBuyType.handleShowBuyType();
+    },
+    // 获取buyType传过来的数据
+    getBuyType: function getBuyType(data) {
+      this.buyType.sizeListValue = data.sizeListValue;
+      this.buyType.sizeColorListValue = data.sizeColorListValue;
     } } };exports.default = _default;
 
 /***/ }),

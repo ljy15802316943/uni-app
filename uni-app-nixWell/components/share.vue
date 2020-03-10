@@ -1,7 +1,6 @@
 <template>
 	<view class="share">
-		<view :class="{'share-box': shareState}" @click="handleHiddenShare">
-		</view>
+		<view :class="{'share-box': shareState}" @click="handleHiddenShare"></view>
 		<view class="share-item" :class="{'share-show': shareState}">
 			<view class="share-to">
 				<text>分享到</text>

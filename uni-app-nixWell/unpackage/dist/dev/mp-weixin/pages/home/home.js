@@ -346,8 +346,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 var _default =
 {
   data: function data() {
@@ -562,9 +560,10 @@ var _default =
       {
         img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553187020783&di=bac9dd78b36fd984502d404d231011c0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926173213_s5adi.jpeg',
         title: '古黛妃 短袖t恤女夏装2019新款韩版宽松',
-        money: '￥179' }] };
+        money: '￥179' }],
 
 
+      text: '点击了' };
 
   },
   created: function created() {
@@ -578,19 +577,31 @@ var _default =
     // 点击swiper
     currentClick: function currentClick(index) {
       uni.navigateTo({
-        url: '/pages/detailShow/detailShow?index=' + encodeURIComponent(JSON.stringify(index)) });
+        url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了轮播图')) });
 
     },
     // 点击了限时秒杀。 
-    TimeLimitClick: function TimeLimitClick(content) {
+    TimeLimitClick: function TimeLimitClick(text) {
       uni.navigateTo({
-        url: '/pages/detailShow/detailShow?content=' + encodeURIComponent(JSON.stringify(content)) });
+        url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了' + text)) });
 
     },
     // 点击了精品团购
-    dealsClick: function dealsClick(title) {
+    dealsClick: function dealsClick(text) {
       uni.navigateTo({
-        url: 'TimeLimit/TimeLimit?content=' + encodeURIComponent(JSON.stringify(title)) });
+        url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify('点击了' + text)) });
+
+    },
+    // 点击了分类精选
+    handleClassifList: function handleClassifList(val, title) {
+      uni.navigateTo({
+        url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify(this.text + title)) });
+
+    },
+    // 点击了猜你喜欢
+    handleGuessYouLikeList: function handleGuessYouLikeList(title) {
+      uni.navigateTo({
+        url: '/pages/detailShow/detailShow?text=' + encodeURIComponent(JSON.stringify(this.text + title)) });
 
     } },
 
