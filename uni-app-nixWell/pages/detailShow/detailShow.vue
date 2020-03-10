@@ -159,6 +159,7 @@
 		methods: {
 			// 点击显示分享
 			handleShare () {
+				console.log('分享')
 				this.$refs.refShare.handleShowShare(); 
 			},
 			// 点击触摸类型
