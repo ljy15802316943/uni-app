@@ -36,7 +36,11 @@
         }
         ,{
             "path" : "pages/classification/classification",
-            "style" : {}
+            "style" : {
+				"navigationBarBackgroundColor":"#FFFFFF",
+				"navigationBarTitleText":"分类",
+				"navigationBarTextStyle":"black"
+			}
         }
         ,{
             "path" : "pages/shoppingCart/shoppingCart",
