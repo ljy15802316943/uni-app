@@ -1,13 +1,13 @@
 <template>
 	<view class="classif-cation">
 		<view class="navigation-menu">
-			<view class="navigation-item" :class="{'navigation-activate': navigationIndex == index}" v-for="(item, index) in navigationList" :key="index" @click="navigationClick(index)">
+			<view class="navigation-item" :class="{'navigation-activate': navigationIndex == index}" v-for="(item, index) in navigationList" :key="index" @click="navigationClick(index, item)">
 				<text>{{item.content}}</text>
 			</view>
 		</view>
 		
 		<view class="content">
-			<scroll-view class="scroll" scroll-y="true" style="height: 100%;" @scroll="scroll">
+			<scroll-view class="scroll-view" scroll-y="true" style="height: 100%;" @scroll="scroll">
 				<view :id="'main-' + item.id" class="content-item" v-for="(item, index) in classifList" :key="index">
 					<view class="content-box" v-for="(list, listIndex) in item.list" :key="listIndex">
 						<view class="title">
@@ -27,14 +27,15 @@
 </template>
 
 <script>
+	let index = null;
 	export default {
 		data() {
 			return {
 				navigationList: [
-					{content: '手机数码'},
-					{content: '礼品鲜花'},
-					{content: '男装女装'},
-					{content: '母婴用品'}
+					{content: '手机数码', id: 0},
+					{content: '礼品鲜花', id: 1},
+					{content: '男装女装', id: 2},
+					{content: '母婴用品', id: 3}
 				],
 				navigationIndex: 0,
 				classifList: [
@@ -98,16 +99,29 @@
 								{image: '/static/temp/cate23.jpg', content: '牙胶安抚'},
 								{image: '/static/temp/cate24.jpg', content: '围兜'},
 							]},
+							{title: '喂养用品',contentBox: [
+								{image: '/static/temp/cate21.jpg', content: '吸奶器'},
+								{image: '/static/temp/cate22.jpg', content: '儿童餐具'},
+								{image: '/static/temp/cate23.jpg', content: '牙胶安抚'},
+								{image: '/static/temp/cate24.jpg', content: '围兜'},
+							]},
 						]
 					},
 					
 				],
+				
 			}
+		},
+		mounted() {
+			
 		},
 		methods: {
 			// 点击左侧菜单栏
-			navigationClick (index) {
+			navigationClick (index, item) {
+				this.currentId = item.id;
 				this.navigationIndex = index;
+				let obj = '#main-'.replace(/-/,'-' + index);
+				console.log(obj, 'obj');
 			},
 			// 右边滚动栏
 			scroll (e) {

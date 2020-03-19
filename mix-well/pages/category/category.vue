@@ -63,6 +63,7 @@
 					this.calcSize();
 				}
 				let scrollTop = e.detail.scrollTop;
+				console.log(e);
 				let tabs = this.slist.filter(item=>item.top <= scrollTop).reverse();
 				if(tabs.length > 0){
 					this.currentId = tabs[0].pid;
