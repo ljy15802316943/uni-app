@@ -59,11 +59,6 @@
             "style" : {}
         }
         ,{
-            "path" : "pages/home/TimeLimit/TimeLimit",
-            "style" : {}
-        }
-        
-        ,{
             "path" : "pages/detailShow/detailShow",
             "style" : {
 				"app-plus": {
@@ -73,6 +68,15 @@
 						}
 					}
 				}
+        }
+        ,{
+            "path" : "pages/goodsList/goodsList",
+            "style" : {
+				"titleNView": {
+					"titleText": "商品列表",
+					"backgroundColor": "rgb(255, 255, 255)"
+				}
+			}
         }
     ],
 	"globalStyle": {

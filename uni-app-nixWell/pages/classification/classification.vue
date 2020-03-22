@@ -7,9 +7,9 @@
 		</view>
 		
 		<view class="content">
-			<scroll-view class="scroll-view" scroll-y="true" style="height: 100%;" @scroll="scroll">
+			<scroll-view :scroll-top="scrollTop" scroll-with-animation class="scroll-view" scroll-y="true" style="height: 100%;" @scroll="scroll">
 				<view :id="'main-' + item.id" class="content-item" v-for="(item, index) in classifList" :key="index">
-					<view class="content-box" v-for="(list, listIndex) in item.list" :key="listIndex">
+					<view class="content-box" v-for="(list, listIndex) in item.list" :key="listIndex" @click="classifListClick">
 						<view class="title">
 							<text>{{list.title}}</text>
 						</view>
@@ -109,23 +109,56 @@
 					},
 					
 				],
-				
+				scrollTop: 0,
+				sizeCalcState: false,
+				// 计算右侧栏每个tab的高度距离父元素顶部的距离
 			}
 		},
 		mounted() {
 			
 		},
 		methods: {
+			//计算右侧栏每个tab的高度距离父元素顶部的距离
+			calcSize(){
+				let h = 0;
+				this.classifList.forEach(item=>{
+					// 获取节点信息的高度
+					let view = uni.createSelectorQuery().select("#main-" + item.id);
+					view.fields({
+						size: true, // 是否返回节点尺寸
+					}, data => { // data是方法的回调函数，参数是指定的相关节点信息。
+						item.top = h; // 子元素距离父元素顶部距离
+						h += data.height;
+						item.bottom = h; // 子元素总高度
+					}).exec();
+				});
+				console.log(this.classifList);	
+				this.sizeCalcState = true;
+			},
 			// 点击左侧菜单栏
-			navigationClick (index, item) {
-				this.currentId = item.id;
-				this.navigationIndex = index;
-				let obj = '#main-'.replace(/-/,'-' + index);
-				console.log(obj, 'obj');
+			navigationClick (val, item) {
+				this.navigationIndex = val; // 被点击的菜单栏
+				if(!this.sizeCalcState){
+					this.calcSize(); // 获取元素信息
+				}
+				let index = this.classifList.findIndex(sitem=>sitem.id === item.id);
+				this.scrollTop = this.classifList[index].top;
 			},
 			// 右边滚动栏
 			scroll (e) {
-				
+				if(!this.sizeCalcState){
+					this.calcSize(); // 获取子元素距离父元素顶部的距离
+				}
+				let scrollTop = e.detail.scrollTop;
+				let tabs = this.classifList.filter(item=>item.top <= scrollTop).reverse();
+				if(tabs.length > 0){
+					this.navigationIndex = tabs[0].id; // 左边菜单栏
+				}
+			},
+			classifListClick () {
+				uni.navigateTo({
+					url: '/pages/goodsList/goodsList'
+				});
 			}
 		}
 	}

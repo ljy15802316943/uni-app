@@ -6,8 +6,8 @@
     "pages/my/my",
     "pages/home/messages/messages",
     "pages/home/advertising/advertising",
-    "pages/home/TimeLimit/TimeLimit",
-    "pages/detailShow/detailShow"
+    "pages/detailShow/detailShow",
+    "pages/goodsList/goodsList"
   ],
   "subPackages": [],
   "window": {

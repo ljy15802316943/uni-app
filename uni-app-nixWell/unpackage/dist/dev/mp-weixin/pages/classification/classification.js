@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -161,15 +161,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-var _default =
+
+var index = null;var _default =
 {
   data: function data() {
     return {
       navigationList: [
-      { content: '手机数码' },
-      { content: '礼品鲜花' },
-      { content: '男装女装' },
-      { content: '母婴用品' }],
+      { content: '手机数码', id: 0 },
+      { content: '礼品鲜花', id: 1 },
+      { content: '男装女装', id: 2 },
+      { content: '母婴用品', id: 3 }],
 
       navigationIndex: 0,
       classifList: [
@@ -231,23 +232,70 @@ var _default =
           { image: '/static/temp/cate21.jpg', content: '吸奶器' },
           { image: '/static/temp/cate22.jpg', content: '儿童餐具' },
           { image: '/static/temp/cate23.jpg', content: '牙胶安抚' },
-          { image: '/static/temp/cate24.jpg', content: '围兜' }] }] }] };
+          { image: '/static/temp/cate24.jpg', content: '围兜' }] },
+
+        { title: '喂养用品', contentBox: [
+          { image: '/static/temp/cate21.jpg', content: '吸奶器' },
+          { image: '/static/temp/cate22.jpg', content: '儿童餐具' },
+          { image: '/static/temp/cate23.jpg', content: '牙胶安抚' },
+          { image: '/static/temp/cate24.jpg', content: '围兜' }] }] }],
 
 
 
 
 
+      scrollTop: 0,
+      sizeCalcState: false
+      // 计算右侧栏每个tab的高度距离父元素顶部的距离
+    };
+  },
+  mounted: function mounted() {
 
   },
   methods: {
+    //计算右侧栏每个tab的高度距离父元素顶部的距离
+    calcSize: function calcSize() {
+      var h = 0;
+      this.classifList.forEach(function (item) {
+        // 获取节点信息的高度
+        var view = uni.createSelectorQuery().select("#main-" + item.id);
+        view.fields({
+          size: true // 是否返回节点尺寸
+        }, function (data) {// data是方法的回调函数，参数是指定的相关节点信息。
+          item.top = h; // 子元素距离父元素顶部距离
+          h += data.height;
+          item.bottom = h; // 子元素总高度
+        }).exec();
+      });
+      console.log(this.classifList);
+      this.sizeCalcState = true;
+    },
     // 点击左侧菜单栏
-    navigationClick: function navigationClick(index) {
-      this.navigationIndex = index;
+    navigationClick: function navigationClick(val, item) {
+      this.navigationIndex = val; // 被点击的菜单栏
+      if (!this.sizeCalcState) {
+        this.calcSize(); // 获取元素信息
+      }
+      var index = this.classifList.findIndex(function (sitem) {return sitem.id === item.id;});
+      this.scrollTop = this.classifList[index].top;
     },
     // 右边滚动栏
     scroll: function scroll(e) {
+      if (!this.sizeCalcState) {
+        this.calcSize(); // 获取子元素距离父元素顶部的距离
+      }
+      var scrollTop = e.detail.scrollTop;
+      var tabs = this.classifList.filter(function (item) {return item.top <= scrollTop;}).reverse();
+      if (tabs.length > 0) {
+        this.navigationIndex = tabs[0].id; // 左边菜单栏
+      }
+    },
+    classifListClick: function classifListClick() {
+      uni.navigateTo({
+        url: '/pages/goodsList/goodsList' });
 
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
