@@ -133,7 +133,17 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -162,14 +172,32 @@ var _default =
       { content: '价格' }],
 
       titleBoxIndex: 0,
-      yticonIconShangIndex: 0 };
+      yticonIconShangIndex: 0,
+      goodsList: [],
+      msg: '没有更多数据了',
+      loadingTitle: '加载中' };
 
+  },
+  mounted: function mounted() {
+    this.getGoodsList();
   },
   methods: {
     titleBoxClick: function titleBoxClick(index) {
       this.titleBoxIndex = index;
       if (this.titleBoxIndex == 2) {
         this.yticonIconShangIndex = 1;
+        uni.showLoading({
+          title: this.loadingTitle });
+
+        this.goodsList.sort(this.compare2("price"));
+        uni.hideLoading();
+      } else if (this.titleBoxIndex == 1) {
+        uni.showLoading({
+          title: this.loadingTitle });
+
+        this.goodsList.sort(this.compare2("sales"));
+        uni.hideLoading();
+        this.yticonIconShangIndex = 0;
       } else {
         this.yticonIconShangIndex = 0;
       }
@@ -177,8 +205,48 @@ var _default =
     yticonIconShang: function yticonIconShang(val) {
       if (this.titleBoxIndex == 2) {
         this.yticonIconShangIndex = val;
+        if (val == 1) {
+          uni.showLoading({
+            title: this.loadingTitle });
+
+          this.goodsList.sort(this.compare2("price"));
+          uni.hideLoading();
+        } else {
+          uni.showLoading({
+            title: this.loadingTitle });
+
+          this.goodsList.sort(this.compare("price"));
+          uni.hideLoading();
+        }
       }
+    },
+    // 获取商品列表数据
+    getGoodsList: function getGoodsList() {var _this = this;
+      uni.showLoading({ title: this.loadingTitle });
+      this.$api.json('goodsList').then(function (res) {
+        if (res) {
+          uni.hideLoading();
+          _this.goodsList = res;
+        };
+      });
+    },
+    //这是比较函数
+    compare: function compare(p) {
+      return function (m, n) {
+        var a = m[p];
+        var b = n[p];
+        return a - b; //升序
+      };
+    },
+    //这是比较函数
+    compare2: function compare2(p) {
+      return function (m, n) {
+        var a = m[p];
+        var b = n[p];
+        return b - a; //降序
+      };
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

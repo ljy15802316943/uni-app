@@ -37,6 +37,27 @@
 	font-size: 30rpx;
 	color: #888;
 }
+.text-overflow {
+	overflow: hiddden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.load-more {
+	width: 100%; 
+	height: 2rem;
+	font-size: 30rpx;
+	color: rgb(119, 119, 119);
+	background-color: f8f8f8;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
 @font-face {
 	font-family: yticon;
 	font-weight: normal;
