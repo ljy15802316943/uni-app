@@ -26,9 +26,9 @@
 }
 
 .text-overflow {
-	overflow: hiddden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	overflow: hidden;
 }
 
 .load-more {
@@ -41,3 +41,22 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.checkbox {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	font-size: 50rpx !important;
+	z-index: 99;
+	background-color: white;
+	padding: 2px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	color: #C0C4CC;
+}
+
+.flex-end {
+	display: flex;
+	justify-content: flex-end;
+}
+

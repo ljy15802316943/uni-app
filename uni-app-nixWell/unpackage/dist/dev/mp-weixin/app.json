@@ -7,7 +7,9 @@
     "pages/home/messages/messages",
     "pages/home/advertising/advertising",
     "pages/detailShow/detailShow",
-    "pages/goodsList/goodsList"
+    "pages/goodsList/goodsList",
+    "pages/login/login",
+    "pages/messageList/messageList"
   ],
   "subPackages": [],
   "window": {

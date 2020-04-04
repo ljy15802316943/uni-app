@@ -1,6 +1,26 @@
 page {
   background-color: #f8f8f8;
 }
+/* 进入页面动画 */
+.fade-enter-active,
+.fade-leave-active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 1;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  z-index: 22;
+}
+/* 离开页面动画 */
+.fade-enter,
+.fade-leave-to {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.5;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  z-index: 22;
+}
 .goodsList {
   width: 750rpx;
   height: 100%;
@@ -125,6 +145,7 @@ page {
   -webkit-flex-direction: column;
           flex-direction: column;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .goodsList .goods-list .goods-list-item image {
   width: 100%;
@@ -153,5 +174,61 @@ page {
   margin-bottom: 50rpx;
   margin-top: 8rpx;
   margin-right: 10rpx;
+}
+.goodsList .classfty-box {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.goodsList .classfty-box .Mongolia {
+  -webkit-box-flex: 0.2;
+  -webkit-flex: 0.2;
+          flex: 0.2;
+  height: 15rem;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.goodsList .classfty-box .classfty-content {
+  -webkit-box-flex: 0.8;
+  -webkit-flex: 0.8;
+          flex: 0.8;
+  height: 15rem;
+  background-color: #FFFFFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+.goodsList .classfty-box .classfty-content scroll-view {
+  width: 100%;
+  height: 100%;
+}
+.goodsList .classfty-box .classfty-content scroll-view .cateLists {
+  width: 100%;
+  height: 2rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-bottom: 1px solid #ededed;
+}
+.goodsList .classfty-box .classfty-content scroll-view .cateLists text {
+  font-size: 30rpx;
+  color: #555;
+  margin-left: 30rpx;
+}
+.goodsList .classfty-box .classfty-content scroll-view .cateLists .text-activate {
+  color: #fa436a !important;
 }
 
